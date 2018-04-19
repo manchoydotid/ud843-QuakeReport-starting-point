@@ -6,7 +6,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by MANCHOY on 4/18/2018.
@@ -61,9 +63,14 @@ public class QueryUtils {
 
                 String magnitude = properties.getString("mag");
                 String location = properties.getString("place");
-                String date = properties.getString("time");
+                Long date = properties.getLong("time");
 
-                Earthquake earthquake = new Earthquake(magnitude, location, date);
+                Date dateObject = new Date(date);
+
+                SimpleDateFormat dateFormater = new SimpleDateFormat("MMM DD, yyyy");
+                String dateToDsiplay = dateFormater.format(dateObject);
+
+                Earthquake earthquake = new Earthquake(magnitude, location, dateToDsiplay);
                 earthquakes.add(earthquake);
             }
 
