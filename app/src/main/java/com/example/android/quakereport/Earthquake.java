@@ -1,17 +1,20 @@
 package com.example.android.quakereport;
 
+import static com.example.android.quakereport.R.id.date;
+
 /**
  * Created by MANCHOY on 4/18/2018.
  */
 
 public class Earthquake {
 
-    private String mMagnitude, mLocation, mDate;
+    private String mMagnitude, mLocation;
+    private long mTimeMilliseconds;
 
-    public Earthquake(String magnitude, String location, String date){
+    public Earthquake(String magnitude, String location, long timeInMilliseconds){
         mMagnitude = magnitude;
         mLocation = location;
-        mDate = date;
+        mTimeMilliseconds = timeInMilliseconds;
     }
 
     public String getmMagnitude() {
@@ -30,11 +33,11 @@ public class Earthquake {
         this.mLocation = mLocation;
     }
 
-    public String getmDate() {
-        return mDate;
+    public long getmTimeMilliseconds() {
+        return mTimeMilliseconds;
     }
 
-    public void setmDate(String mDate) {
-        this.mDate = mDate;
+    public void setmTimeMilliseconds(long mTimeMilliseconds) {
+        this.mTimeMilliseconds = mTimeMilliseconds;
     }
 }

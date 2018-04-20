@@ -51,7 +51,6 @@ public class QueryUtils {
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
         try {
 
-            // TODO: Parse the response given by the SAMPLE_JSON_RESPONSE string and
             // build up a list of Earthquake objects with the corresponding data.
 
             JSONObject root = new JSONObject(SAMPLE_JSON_RESPONSE);
@@ -65,12 +64,7 @@ public class QueryUtils {
                 String location = properties.getString("place");
                 Long date = properties.getLong("time");
 
-                Date dateObject = new Date(date);
-
-                SimpleDateFormat dateFormater = new SimpleDateFormat("MMM DD, yyyy");
-                String dateToDsiplay = dateFormater.format(dateObject);
-
-                Earthquake earthquake = new Earthquake(magnitude, location, dateToDsiplay);
+                Earthquake earthquake = new Earthquake(magnitude, location, date);
                 earthquakes.add(earthquake);
             }
 
